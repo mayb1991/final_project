@@ -2,3 +2,25 @@ body {
     background-color: lightgrey;
     font-family: Tahoma, Verdana, sans-serif;
 }
+
+h1 {
+    color: green;
+}
+
+form {
+    margin-top: 50px;
+}
+
+#go_to_login, #go_to_signup {
+    text-decoration: none;
+    padding-top: 25px;
+    color: black;
+}
+
+#go_to_signup:hover {
+    color: blue;
+}
+
+#go_to_login:hover {
+    color: blue;
+}

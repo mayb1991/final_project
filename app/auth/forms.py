@@ -1,4 +1,3 @@
-from enum import unique
 from flask import Flask
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
@@ -7,17 +6,19 @@ from wtforms.validators import DataRequired, EqualTo
 
 
 class NewUserForm(FlaskForm):
-    first_name = StringField('First_Name', validators=[DataRequired()])
-    last_name = StringField('Last_Nane', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
-    username = StringField('UserName', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField()
+    style={'class': 'ourClasses', 'style': 'width:50%; other_css_style; margin-left:300px;'}
+    first_name = StringField('First_Name', validators=[DataRequired()], render_kw=style)
+    last_name = StringField('Last_Nane', validators=[DataRequired()], render_kw=style)
+    email = StringField('Email', validators=[DataRequired()], render_kw=style)
+    username = StringField('UserName', validators=[DataRequired()],render_kw=style)
+    password = PasswordField('Password', validators=[DataRequired()],render_kw=style)
+    confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo('password')],render_kw=style)
+    submit = SubmitField(render_kw=style)
 
 
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField()
+    style={'class': 'ourClasses', 'style': 'width:50%; other_css_style; margin-left:300px;'}
+    username = StringField('Username', validators=[DataRequired()],render_kw=style)
+    password = PasswordField('Password', validators=[DataRequired()],render_kw=style)
+    submit = SubmitField(render_kw=style)

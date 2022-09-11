@@ -2,15 +2,23 @@
 
 
 {% block content %}
+<div class="container d-flex justify-content-center">
+    <h1>Login Now!</h1>
+</div>
 
+<form class="container" method="POST">
+    {{ form.hidden_tag() }}
 
-    <form class="container" method="POST">
-        {{ form.hidden_tag() }}
-
-        {{ form.username(class='form-control', placeholder='Username') }}
-        {{ form.password(class='form-control', placeholder='Password') }}
-        {{ form.submit(class='btn btn-primary') }}
-    </form>
-
+    {{ form.username(class='form-control', placeholder='Username') }}
+    {{ form.password(class='form-control', placeholder='Password') }}
+    {{ form.submit(class='btn btn-primary') }}
+</form>
+<div class="container d-flex justify-content-center">
+    <a id="go_to_signup" href="{{ url_for('auth.signup') }}">Need To Open An Account</a>
+</div>
+<br>
+<div class="container d-flex justify-content-center">
+    <img src="https://cdn.sportsbettingdime.com/app/uploads/sbd-feat-redsportsodds.jpg" alt="">
+</div>
 
 {% endblock %}

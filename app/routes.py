@@ -39,19 +39,21 @@ def home_page():
             "Favorite": d['bookmakers'][5]['markets'][0]['outcomes'][0]['name']
         }
             for d in data]
-        check = GameData.query.filter_by(sport=nfl[0]['Sport']).first()
-        if not check:
-            game = GameData(nfl[0]['id'],nfl[0]['Sport'], nfl[0]["Match"], nfl[0]["Game_Time"], nfl[0]["Favorite"],
-            nfl[0]["Odds"])
+        # check = GameData.query.filter_by(sport=nfl[0]['id']).all()
+        # if not check:
+        for x in range(len(nfl)):
+
+            game = GameData(nfl[x]['id'],nfl[x]['Sport'], nfl[x]["Match"], nfl[x]["Game_Time"], nfl[x]["Favorite"], nfl[x]["Odds"])
             game.save_game()
 
         return render_template('index.html', nfl=nfl)
     return render_template('index.html', nfl=nfl)
 
 
-@app.route('/game/<match_up>')
-def match_up(match):
-    game = GameData.query.filter_by(match_up=match).first()
+@app.route('/game/<match>')
+def match_up(match_up):
+    game = GameData.query.filter_by(match=match_up).first()
+    return render_template('match_up.html', game=game)
 
 
 @app.route('/scores', methods=['GET', 'POST'])
@@ -81,6 +83,6 @@ def scores():
             "Updated": d['last_update']
         }
         for d in data]
-        return render_template('scores.html')
+        return render_template('scores.html', game_data=game_data)
     return render_template('scores.html')
 
