@@ -24,3 +24,7 @@ form {
 #go_to_login:hover {
     color: blue;
 }
+
+#welcome_guest, #welcome_user {
+    margin-left: 750px;
+}

@@ -1,33 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        
-        <div class="carousel-inner">
-            {% for scores in game_data %}
-            <!-- <div class="carousel-item active">
-                <img src="..." class="d-block w-100" alt="...">
-            </div> -->
-            <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
-                <p>{{ scores.Scores }}</p>
-            </div>
-            {% endfor %}
-            <!-- <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
-            </div> -->
+<div class="container row">
+    {% for game in game_data %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ game.Home_Team }} VS. {{ game.Away_Team }}</h5>
+            <!-- <h6 class="card-subtitle mb-2 text-muted">{{ game.Scores }}</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a> -->
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>   
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-       
     </div>
+    {% endfor %}
 </div>
 
 

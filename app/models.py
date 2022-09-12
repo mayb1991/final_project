@@ -7,8 +7,12 @@ from werkzeug.security import generate_password_hash
 db = SQLAlchemy()
 
 
+# match_odds = db.Table("match_odds",
+#     db.Column('follow_id', db.Integer, db.ForeignKey('user.id'))
+# )
 
-class User(db.Model,UserMixin):
+
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(150), nullable=False)
     last_name = db.Column(db.String(150), nullable=False)
@@ -16,6 +20,10 @@ class User(db.Model,UserMixin):
     username = db.Column(db.String(75), nullable=False, unique=True)
     password = db.Column(db.String(250), nullable=False)
     apitoken = db.Column(db.String, default=None, nullable=True)
+
+    # followed_match = db.relationship("User",
+    # primaryjoin = (match_odds.c.follow_id==id)
+   #)
 
     def __init__(self, first_name, last_name, email, username, password):
         self.first_name = first_name
@@ -25,6 +33,9 @@ class User(db.Model,UserMixin):
         self.password = generate_password_hash(password)
         self.apitoken = token_hex(16)
 
+    # def follow(self, user):
+    #     self.followed.append(user)
+    #     db.session.commit()
 
 class GameData(db.Model):
     id = db.Column(db.Integer, primary_key=True)

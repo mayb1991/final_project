@@ -1,10 +1,10 @@
-from urllib import response
 from app import app
 from flask import render_template, request, url_for, redirect
 import requests
 from flask_moment import Moment
 from datetime import datetime
-from .models import GameData
+from .models import GameData, User
+from flask_login import login_required, current_user
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -33,7 +33,7 @@ def home_page():
         nfl = [{
             "id": d["id"],
             "Sport":d["sport_key"],
-            "Match":[d['home_team'],d['away_team']],
+            "Match":[d['home_team'], d['away_team']],
             "Game_Time": d['commence_time'],
             "Odds": d['bookmakers'][5]['markets'][0]['outcomes'][0]['point'],
             "Favorite": d['bookmakers'][5]['markets'][0]['outcomes'][0]['name']
@@ -43,17 +43,20 @@ def home_page():
         # if not check:
         for x in range(len(nfl)):
 
-            game = GameData(nfl[x]['id'],nfl[x]['Sport'], nfl[x]["Match"], nfl[x]["Game_Time"], nfl[x]["Favorite"], nfl[x]["Odds"])
+            game = GameData(nfl[x]['id'], nfl[x]['Sport'], nfl[x]["Match"],
+                            nfl[x]["Game_Time"], nfl[x]["Favorite"], nfl[x]["Odds"])
             game.save_game()
 
         return render_template('index.html', nfl=nfl)
     return render_template('index.html', nfl=nfl)
 
 
-@app.route('/game/<match>')
-def match_up(match_up):
-    game = GameData.query.filter_by(match=match_up).first()
-    return render_template('match_up.html', game=game)
+@app.route('/follow/<int:user_id>')
+@login_required
+def follow_odds(user_id):
+    user = User.query.get(user_id)
+    current_user.follow(user)
+    return redirect(url_for('home_page'))
 
 
 @app.route('/scores', methods=['GET', 'POST'])
@@ -79,10 +82,9 @@ def scores():
         game_data = [{
             "Home_Team": d['home_team'],
             "Away_Team": d['away_team'],
-            "Scores": d['scores'],
+            # "Scores": d['scores'][0]['score'],
             "Updated": d['last_update']
         }
-        for d in data]
+            for d in data]
         return render_template('scores.html', game_data=game_data)
     return render_template('scores.html')
-

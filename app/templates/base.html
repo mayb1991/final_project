@@ -17,7 +17,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">Finest Odds</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,11 +26,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Features</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="/scores">Scores</a>
                     </li>
                     {% if current_user.is_authenticated %}
                     <li class="nav-item">
@@ -44,6 +44,15 @@
                         <a class="nav-link" href="/signup">Sign Up</a>
                     </li>
                     {% endif %}
+
+                    <li class="nav-item">
+                        {% if current_user.is_authenticated %}
+                        <p class="nav-link active" id="welcome_user">Hello, {{ current_user.username.title() }}</p>
+                        {% else %}
+                        <p class="nav-link active" id="welcome_guest">Welcome, Guest create an account to track your favorite games</p>
+                        {% endif %}
+                    </li>
+
                 </ul>
             </div>
         </div>
