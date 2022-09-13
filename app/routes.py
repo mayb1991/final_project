@@ -35,8 +35,8 @@ def home_page():
             "Sport":d["sport_key"],
             "Match":[d['home_team'], d['away_team']],
             "Game_Time": d['commence_time'],
-            "Odds": d['bookmakers'][5]['markets'][0]['outcomes'][0]['point'],
-            "Favorite": d['bookmakers'][5]['markets'][0]['outcomes'][0]['name']
+            "Odds": d['bookmakers'][0]['markets'][0]['outcomes'][0]['point'],
+            "Favorite": d['bookmakers'][0]['markets'][0]['outcomes'][0]['name']
         }
             for d in data]
         # check = GameData.query.filter_by(sport=nfl[0]['id']).all()
@@ -156,3 +156,8 @@ def mlb_odds():
         }
         for d in data]
         return render_template("mlb_odds.html", mlb=mlb)
+
+
+@app.route("/tools")
+def tools():
+    return render_template("glossary.html")
