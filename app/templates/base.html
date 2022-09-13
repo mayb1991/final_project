@@ -59,7 +59,7 @@
 
                     <li class="nav-item">
                         {% if current_user.is_authenticated %}
-                        <p class="nav-link active" id="welcome_user">Hello, {{ current_user.username.title() }}</p>
+                        <p class="nav-link active" id="welcome_user">Welcome Back, {{ current_user.username.title() }}</p>
                         {% else %}
                         <p class="nav-link active" id="welcome_guest">Welcome, Guest create an account to track your favorite games</p>
                         {% endif %}

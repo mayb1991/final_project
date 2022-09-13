@@ -5,6 +5,12 @@ from flask_moment import Moment
 from datetime import datetime
 from .models import GameData, User
 from flask_login import login_required, current_user
+from config import Config
+
+# headers = {
+#     API_KEY
+#     "X-RapidAPI-Host": "odds.p.rapidapi.com"
+# }
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -120,7 +126,7 @@ def ncaaf_odds():
             "Odds": d['bookmakers'][5]['markets'][0]['outcomes'][0]['point'],
             "Favorite": d['bookmakers'][5]['markets'][0]['outcomes'][0]['name']
         }
-        for d in data]
+            for d in data]
         return render_template("ncaaf.html", ncaaf=ncaaf)
 
 
@@ -154,7 +160,7 @@ def mlb_odds():
             "Odds": d['bookmakers'][5]['markets'][0]['outcomes'][0]['point'],
             "Favorite": d['bookmakers'][5]['markets'][0]['outcomes'][0]['name']
         }
-        for d in data]
+            for d in data]
         return render_template("mlb_odds.html", mlb=mlb)
 
 

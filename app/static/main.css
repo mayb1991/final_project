@@ -5,6 +5,8 @@ body {
 
 h1 {
     color: green;
+    margin-bottom: 35px;
+    margin-top: 15px;
 }
 
 form {
@@ -27,4 +29,12 @@ form {
 
 #welcome_guest, #welcome_user {
     margin-left: 450px;
+}
+
+#nfl_games, #mlb_games, #ncaaf_games {
+    margin: auto;
+}
+
+#glossary {
+    margin-top: 50px;
 }
