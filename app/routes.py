@@ -45,24 +45,24 @@ def home_page():
             "Favorite": d['bookmakers'][0]['markets'][0]['outcomes'][0]['name']
         }
             for d in data]
-        # check = GameData.query.filter_by(sport=nfl[0]['id']).all()
-        # if not check:
-        for x in range(len(nfl)):
+        check = GameData.query.filter_by(sport=nfl[0]['id']).first()
+        if not check:
+            for x in range(len(nfl)):
 
-            game = GameData(nfl[x]['id'], nfl[x]['Sport'], nfl[x]["Match"],
-                            nfl[x]["Game_Time"], nfl[x]["Favorite"], nfl[x]["Odds"])
+                game = GameData(nfl[x]['id'], nfl[x]['Sport'], nfl[x]["Match"],
+                                nfl[x]["Game_Time"], nfl[x]["Favorite"], nfl[x]["Odds"])
             game.save_game()
 
         return render_template('index.html', nfl=nfl)
     return render_template('index.html', nfl=nfl)
 
 
-@app.route('/follow/<int:user_id>')
-@login_required
-def follow_odds(user_id):
-    user = User.query.get(user_id)
-    current_user.follow(user)
-    return redirect(url_for('home_page'))
+# @app.route('/follow/<int:game_id>')
+# @login_required
+# def follow_odds(odds):
+#     user = GameData.query.get(odds)
+#     current_user.follow(user)
+#     return redirect(url_for('home_page'))
 
 
 @app.route('/scores', methods=['GET', 'POST'])
@@ -119,8 +119,8 @@ def ncaaf_odds():
 
         ncaaf = [{
 
-            # "id": data["id"],
-            # "Sport": data["sport_key"],
+            "id": data["id"],
+            "Sport": data["sport_key"],
             "Match": [d['home_team'], d['away_team']],
             "Game_Time": d['commence_time'],
             "Odds": d['bookmakers'][5]['markets'][0]['outcomes'][0]['point'],
@@ -157,8 +157,8 @@ def mlb_odds():
             # "Sport": data["sport_key"],
             "Match": [d['home_team'], d['away_team']],
             "Game_Time": d['commence_time'],
-            "Odds": d['bookmakers'][5]['markets'][0]['outcomes'][0]['point'],
-            "Favorite": d['bookmakers'][5]['markets'][0]['outcomes'][0]['name']
+            "Odds": d['bookmakers'][0]['markets'][0]['outcomes'][0]['point'],
+            "Favorite": d['bookmakers'][0]['markets'][0]['outcomes'][0]['name']
         }
             for d in data]
         return render_template("mlb_odds.html", mlb=mlb)

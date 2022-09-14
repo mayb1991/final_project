@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="container d-flex justify-content-center">Know The Terms</h1>
+<h1 class="container d-flex justify-content-center">Know The Terms</h1>
 
 <div class="container col-8" id="glossary">
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingOne">
+            <h2 class="accordion-header glossary_term" id="flush-headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                     How to read the point spread
                 </button>
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingTwo">
+            <h2 class="accordion-header glossary_term" id="flush-headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                     What is the over-under?
                 </button>
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingThree">
+            <h2 class="accordion-header glossary_term" id="flush-headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                     What is the difference between the money line and point spread?
                 </button>
@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingFour">
+            <h2 class="accordion-header glossary_term" id="flush-headingFour">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                     What is a parlay?
                 </button>
@@ -103,7 +103,7 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingFive">
+            <h2 class="accordion-header glossary_term" id="flush-headingFive">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
                     What is a pick-'em?
                 </button>
@@ -117,7 +117,7 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingSix">
+            <h2 class="accordion-header glossary_term" id="flush-headingSix">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
                     What is straight up?
                 </button>
@@ -129,7 +129,7 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingSeven">
+            <h2 class="accordion-header glossary_term" id="flush-headingSeven">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
                     What is a futures bet?
                 </button>
@@ -141,7 +141,7 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingEight">
+            <h2 class="accordion-header glossary_term" id="flush-headingEight">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
                     What is chalk?
                 </button>
@@ -152,7 +152,7 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingNine">
+            <h2 class="accordion-header glossary_term" id="flush-headingNine">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
                     What is a dog?
                 </button>
@@ -163,7 +163,7 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingTen">
+            <h2 class="accordion-header glossary_term" id="flush-headingTen">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">
                     What is a betting limit?
                 </button>
@@ -177,7 +177,7 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingEleven">
+            <h2 class="accordion-header glossary_term" id="flush-headingEleven">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
                     What does it mean to be a lock?
                 </button>
@@ -190,31 +190,31 @@
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingTwelve">
+            <h2 class="accordion-header glossary_term" id="flush-headingTwelve">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
                     What is a runline in baseball?
                 </button>
             </h2>
             <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Similar to the puckline, the runline acts as a spread in baseball. 
-                    The favorite on the moneyline to win the game outright would be -1.5 on the runline, while the underdog on the moneyline would be +1.5. 
-                    However, in many cases the moneyline favorite will return a plus-money payout at -1.5 on the runline because most games are decided by one run. 
-                    If a team is massively favored on the moneyline, it also can be favored at -1.5 on the runline. Many books will offer alternate runlines of 2.5 or even 3.5 
+                <div class="accordion-body">Similar to the puckline, the runline acts as a spread in baseball.
+                    The favorite on the moneyline to win the game outright would be -1.5 on the runline, while the underdog on the moneyline would be +1.5.
+                    However, in many cases the moneyline favorite will return a plus-money payout at -1.5 on the runline because most games are decided by one run.
+                    If a team is massively favored on the moneyline, it also can be favored at -1.5 on the runline. Many books will offer alternate runlines of 2.5 or even 3.5
                     but the prices change dramatically.</div>
             </div>
         </div>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingThirteen">
+            <h2 class="accordion-header glossary_term" id="flush-headingThirteen">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThirteen" aria-expanded="false" aria-controls="flush-collapseThirteen">
                     What is hedging?
                 </button>
             </h2>
             <div id="flush-collapseThirteen" class="accordion-collapse collapse" aria-labelledby="flush-headingThirteen" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">Hedging is placing wagers on both sides of a game or event to assure at least a small profit or minimal loss. 
-                    This is often done with futures bets. For example, someone might have placed a $100 bet on Nick Bosa at +2000 to win Super Bowl MVP but then hedged 
-                    by placing another $100 on Patrick Mahomes at +150. If Mahomes won, it would have returned $250 -- the $100 wager plus the $150 profit. 
-                    Then subtract the $100 wagered on Bosa. So, a bettor wagered $200 overall and won $50. Hedging during games is also popular. 
-                    Perhaps someone bet on the 49ers to win Super Bowl LIV. The Chiefs opened as favorites but would have been sizable underdogs down 20-10 in the fourth quarter. 
+                <div class="accordion-body">Hedging is placing wagers on both sides of a game or event to assure at least a small profit or minimal loss.
+                    This is often done with futures bets. For example, someone might have placed a $100 bet on Nick Bosa at +2000 to win Super Bowl MVP but then hedged
+                    by placing another $100 on Patrick Mahomes at +150. If Mahomes won, it would have returned $250 -- the $100 wager plus the $150 profit.
+                    Then subtract the $100 wagered on Bosa. So, a bettor wagered $200 overall and won $50. Hedging during games is also popular.
+                    Perhaps someone bet on the 49ers to win Super Bowl LIV. The Chiefs opened as favorites but would have been sizable underdogs down 20-10 in the fourth quarter.
                     They still would have been dogs when it was 20-17. In retrospect, that would have been a good time to bet the Chiefs as a hedge against the original 49ers bet.</div>
             </div>
         </div>
