@@ -12,7 +12,7 @@
             <h5 class="card-title">{{ game.Match[0] }} VS. {{ game.Match[1] }}</h5>
             <p class="card-text">Time: {{ game.Game_Time }}</p>
             <p class="card-text">{{ game.Favorite }} {{ game.Odds }}</p>
-           
+            <!-- <a href="{{ url_for('follow_odds',game_id=game.id) }}" class="btn btn-primary">Follow</a> -->
         </div>
     </div>
     {% endfor %}
@@ -21,4 +21,4 @@
 
 {% endblock %}
 
- <!-- <a href="{{ url_for('follow_odds',odds=game_id) }}" class="btn btn-primary">Follow</a> -->
+ 

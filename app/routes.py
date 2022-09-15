@@ -57,12 +57,13 @@ def home_page():
     return render_template('index.html', nfl=nfl)
 
 
-# @app.route('/follow/<int:game_id>')
-# @login_required
-# def follow_odds(odds):
-#     user = GameData.query.get(odds)
-#     current_user.follow(user)
-#     return redirect(url_for('home_page'))
+@app.route('/follow/<string:game_id>')
+@login_required
+def follow_odds(game_id):
+    user = GameData.query.get(game_id)
+    current_user.follow(user)
+
+    return redirect(url_for('home_page'))
 
 
 @app.route('/scores', methods=['GET', 'POST'])
