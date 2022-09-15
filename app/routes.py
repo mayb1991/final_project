@@ -120,11 +120,11 @@ def ncaaf_odds():
 
         ncaaf = [{
 
-            "id": data["id"],
-            "Sport": data["sport_key"],
+            "id": d["id"],
+            "Sport": d["sport_key"],
             "Match": [d['home_team'], d['away_team']],
             "Game_Time": d['commence_time'],
-            "Odds": d['bookmakers'][5]['markets'][0]['outcomes'][0]['point'],
+            "Odds": d['bookmakers'][0]['markets'][0]['outcomes'][0]['point'],
             "Favorite": d['bookmakers'][5]['markets'][0]['outcomes'][0]['name']
         }
             for d in data]
@@ -154,8 +154,8 @@ def mlb_odds():
 
         mlb = [{
 
-            # "id": data["id"],
-            # "Sport": data["sport_key"],
+            "id": d["id"],
+            "Sport": d["sport_key"],
             "Match": [d['home_team'], d['away_team']],
             "Game_Time": d['commence_time'],
             "Odds": d['bookmakers'][0]['markets'][0]['outcomes'][0]['point'],
